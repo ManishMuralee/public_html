@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Nadoo extends CI_Model
-{
+{   //function to check if random string generated already exists or not
     public function randomstringurl_exists($randomString)
     {
         $this->db->SELECT('*');
@@ -17,7 +17,7 @@ class Nadoo extends CI_Model
             return 1;
         }
     }
-
+    //function to add random string generated short url in database
     public function randomstringurl_add($url_org,$randomString)
     {
         $data['url_org'] = $url_org;
@@ -37,7 +37,7 @@ class Nadoo extends CI_Model
         }
 
     }
-
+    //function to redirect long url to short url
     public function randomstringurl_get($randomstring_url)
     {
         $this->db->SELECT('*');
