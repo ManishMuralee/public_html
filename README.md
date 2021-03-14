@@ -1,7 +1,7 @@
 # shorturlnow website files
 
 
-This repo contains files used to run www.shorturlnow.tk . 
+This repo contains files used to run http://shorturlnow.tk/ . 
  Download all files and run this LAMP server to run this project.This also contains a demo database sql file called url_shortener_db.sql.Import this sql database file to phpmyadmin to run this project.
  
  
