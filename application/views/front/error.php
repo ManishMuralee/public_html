@@ -7,7 +7,7 @@
 
         <a class="logo d-flex align-items-center">
             <img src="assets/img/logo.png" alt="">
-            <span>ShortURL</span>
+            <span>ShortURLNow</span>
         </a>
 
         <nav id="navbar" class="navbar">
