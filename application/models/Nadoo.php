@@ -37,7 +37,7 @@ class Nadoo extends CI_Model
         }
 
     }
-    //function to redirect long url to short url
+    //function to get redirect long url with short url
     public function randomstringurl_get($randomstring_url)
     {
         $this->db->SELECT('*');
