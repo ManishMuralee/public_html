@@ -6,10 +6,6 @@ class Front extends CI_Controller
 
     public function index()
     {
-//        print_r('aaaaaaaa');
-//        exit();
-//        $content = array('link' => 'front/user-login');
-//        $this->load->view('front/index');
         $content = array('link' => 'front/index');
         $this->load->view('front/page', $content);
     }
@@ -26,7 +22,7 @@ class Front extends CI_Controller
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
         $charactersLength = strlen($characters);
         $randomString = '';
-        $length=10;
+        $length=4;
         $c=0;
         $a=0;
         while($c==0) {
@@ -44,16 +40,13 @@ class Front extends CI_Controller
 
 
 
-    public function coming()
+    public function shorturlnow()
     {
         $data_inserted=$this->randomstringurl();
         if($data_inserted['inserted']>0)
         {
             print_r($data_inserted['url_short']);
         }
-
-//        $content = array('link' => 'front/coming');
-//        $this->load->view('front/page', $content);
     }
 
 
