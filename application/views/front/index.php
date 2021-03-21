@@ -69,7 +69,7 @@
               success: function (data) {
                   $("#input_error").show();
                   $("#input_error").val(data);
-                  if(data!='Not a valid URL')
+                  if((data!='Not a valid URL')&&(data!='Already a short link !'))
                   {
                       $("#shorturl_button").hide();
                       $("#copyclipboard").show();
