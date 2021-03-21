@@ -4,21 +4,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Front extends CI_Controller
 {
 
-    //function for home page
     public function index()
     {
         $content = array('link' => 'front/index');
         $this->load->view('front/page', $content);
     }
 
-    //function to create a random unique alphnumerical string
+
     public function randomstringurl()
     {
         $url_org = $this->input->post("url_org");
-
-        if (filter_var($url_org, FILTER_VALIDATE_URL) === FALSE) {  //URL validation function
-            die('Not a valid URL'); 
+        
+        if (in_array($url_org, array('', 'about:blank', 'undefined', 'http://localhost/'))) {
+        	die('Not a valid URL');
         }
+
+        if (filter_var($url_org, FILTER_VALIDATE_URL) === FALSE) {
+            die('Not a valid URL');
+        }
+        
+        if (strpos($url_org, base_url()) === 0) {
+	 die('Already a short link !');
+        }
+
 
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
         $charactersLength = strlen($characters);
@@ -40,7 +48,7 @@ class Front extends CI_Controller
     }
 
 
-    //function to create short url by ajax
+
     public function shorturlnow()
     {
         $data_inserted=$this->randomstringurl();
@@ -48,10 +56,11 @@ class Front extends CI_Controller
         {
             print_r($data_inserted['url_short']);
         }
+
     }
 
 
-    //function to process short url and redirect to original long url page
+
     public function redirect_url()
     {
         $randomstring_url = $this->uri->segment(2);
@@ -69,7 +78,6 @@ class Front extends CI_Controller
         }
     }
 
-    //function for 404 error 
     public function page404()
     {
         $content = array('link' => 'front/error');
